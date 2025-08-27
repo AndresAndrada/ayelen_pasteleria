@@ -11,6 +11,7 @@ interface ProductStore {
   SelectedTab: string;
   ProductById: Record<string, Product>; // Reemplaza con una interfaz específica si la tienes
   ConsumerProducts: string;
+  Carrito: Record<string, string | number | undefined>[]; // Cambiado a un objeto para detalles del carrito
 
   // Métodos para actualizar el estado
   setProducts: (values: Product[]) => void;
@@ -21,6 +22,7 @@ interface ProductStore {
   setCurrentProductsPage: (page: number) => void;
   setSelectedTab: (tab: string) => void;
   setConsumerProducts: (consumer: string) => void;
+  setCarrito: (consumer: Record<string, string | number | undefined>[]) => void;
 }
 
 // Creamos la tienda con Zustand y tipamos el estado
@@ -33,6 +35,7 @@ export const useProductStore = create<ProductStore>((set) => ({
   SelectedTab: '',
   ProductById: {},
   ConsumerProducts: 'Minorista',
+  Carrito: [],
 
   setProducts: (values: Product[]) => set({ Products: values }),
   setDataPerfilProduct: (values: Product) => set({ DataPerfilProduct: values }),
@@ -46,4 +49,5 @@ export const useProductStore = create<ProductStore>((set) => ({
     set((prevState: ProductStore) => ({ ...prevState, SelectedTab: tab })),
   setConsumerProducts: (consumer) =>
     set((prevState: ProductStore) => ({ ...prevState, ConsumerProducts: consumer })),
+  setCarrito: (values) => set({ Carrito: values }),
 }));

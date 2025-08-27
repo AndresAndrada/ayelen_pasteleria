@@ -7,6 +7,7 @@ import product from "../../../utils/products.json";
 import { useRef } from "react";
 import type { Slider as SliderType } from "react-slick";
 import { CardProduct } from "../../core/components/cards/CardProduct";
+import { ButtonSecondary } from "../../core/ui/button/ButtonSecondary";
 
 interface SliderInstance extends SliderType {
   slickNext: () => void;
@@ -31,7 +32,7 @@ export const SectionProduct = () => {
     prevArrow: <SamplePrevArrow onClick={previous} />,
     responsive: [
       {
-        breakpoint: 710,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -39,7 +40,7 @@ export const SectionProduct = () => {
         },
       },
       {
-        breakpoint: 550,
+        breakpoint: 640,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -51,28 +52,33 @@ export const SectionProduct = () => {
   return (
     <section
       id="productos"
-      className="w-full flex flex-col justify-center items-center py-16 bg-white/70"
+      className="w-full flex flex-col justify-center items-center py-16 bg-white/70 gap-12"
     >
-      <h3 className="text-2xl font-bold text-pink-700 mb-8">
-        Nuestros Productos
-      </h3>
-      <div className="max-w-60 sm:w-full sm:max-w-6xl">
-        <div className="slider-container min-h-96">
-          <Slider {...settings} ref={sliderRef}>
-            {product.map((item) => {
-              return (
-                <CardProduct
-                  key={item.id}
-                  id={item.id}
-                  img={item.img}
-                  name={item.name}
-                  description={item.description}
-                />
-              );
-            })}
-          </Slider>
-        </div>
+      <div className="flex flex-col gap-4">
+        <h3 className="w-full text-2xl font-bold text-secondary drop-shadow-text">
+          Nuestros Productos
+        </h3>
+        <p className="text-gray-500">
+          Estos son algunos de nuestros productos más destacados 👌
+        </p>
       </div>
+      <div className="slider-container min-h-96 max-w-60 sm:w-full sm:max-w-96 md:max-w-2xl lg:max-w-4xl md:pl-0">
+        <Slider {...settings} ref={sliderRef}>
+          {product.map((item) => {
+            return (
+              <CardProduct
+                key={item.id}
+                id={item.id}
+                img={item.img}
+                name={item.name}
+                description={item.description}
+                price={item.price}
+              />
+            );
+          })}
+        </Slider>
+      </div>
+      <ButtonSecondary title="Ir a productos" navigate="/product" />
     </section>
   );
 };

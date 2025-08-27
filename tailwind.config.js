@@ -60,8 +60,9 @@ export default {
         sm: 'calc(var(--radius) - 4px)',
       },
       backgroundImage: {
-        banner: 'url(https://res.cloudinary.com/de7fyvmdp/image/upload/v1727357561/mate_hawtls.jpg)',
-        "gradient-section": "linear-gradient(to bottom right, #fce7f3, red)"
+        banner: 'url(https://res.cloudinary.com/de7fyvmdp/image/upload/v1755453771/samples/Cheesecake_frutos_rojos_wujyc5.jpg)',
+        "gradient-section": "linear-gradient(to bottom right, #fce7f3, red)",
+        "gradient-dark": "linear-gradient(to bottom right, black, gray)",
       },
       backgroundPosition: {
         banner_sm: 'left 30% top 10%',

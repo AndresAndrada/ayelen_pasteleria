@@ -1,8 +1,16 @@
 interface ItemNevBarProps {
+  children: React.ReactNode;
   href: string;
-  title: string;
+  className?: string;
+  navigate?: string;
+  // title: string;
 }
-export const ItemsNavBar = ({ href, title }: ItemNevBarProps) => {
+export const ItemsNavBar = ({
+  href,
+  children,
+  className,
+  navigate,
+}: ItemNevBarProps) => {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault(); // Prevent default anchor jump
     const targetId = href.replace("#", ""); // Get the ID (e.g., "productos")
@@ -16,11 +24,11 @@ export const ItemsNavBar = ({ href, title }: ItemNevBarProps) => {
   };
   return (
     <a
-      href={href}
-      className="text-secondary hover:text-yellow-600 font-medium"
+      href={href ? href : navigate ? navigate : ""}
+      className={`text-secondary hover:text-yellow-600 font-medium ${className}`}
       onClick={handleClick}
     >
-      {title}
+      {children}
     </a>
   );
 };

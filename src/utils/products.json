@@ -1,32 +1,90 @@
 [
     {
         "id": 1,
-        "img": "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=300&q=80",
+        "img": "https://res.cloudinary.com/de7fyvmdp/image/upload/v1755453519/samples/Chocolate_cla3f3.jpg",
         "name": "Torta de Chocolate",
-        "description": "Esponjosa, húmeda y con el mejor cacao. ¡Un clásico irresistible!"
+        "description": "Esponjosa, húmeda y con el mejor cacao. ¡Un clásico irresistible!",
+        "price": 1900,
+         "type": "torta"
     },
      {
         "id": 2,
-        "img": "https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?auto=format&fit=crop&w=300&q=80",
+        "img": "https://res.cloudinary.com/de7fyvmdp/image/upload/v1755453165/samples/Ayel%C3%A9n1_lpvjyv.jpg",
         "name": "Cheesecake de Frutos Rojos",
-        "description": "Esponjosa, húmeda y con el mejor cacao. ¡Un clásico irresistible!"
+        "description": "Esponjosa, húmeda y con el mejor cacao. ¡Un clásico irresistible!",
+        "price": 12999,
+         "type": "torta"
     },
      {
         "id": 3,
-        "img": "https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=300&q=80",
+        "img": "https://res.cloudinary.com/de7fyvmdp/image/upload/v1755453328/samples/Desayuno_sskgqr.jpg",
         "name": "Cupcakes Variados",
-        "description": "De vainilla, chocolate y más, decorados con buttercream de colores."
+        "description": "De vainilla, chocolate y más, decorados con buttercream de colores.",
+        "price": 14560,
+         "type": "torta"
     },
      {
         "id": 4,
-        "img": "https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?auto=format&fit=crop&w=300&q=80",
+        "img": "https://res.cloudinary.com/de7fyvmdp/image/upload/v1755453771/samples/Cheesecake_frutos_rojos_wujyc5.jpg",
         "name": "Cheesecake de Frutos Rojos",
-        "description": "Esponjosa, húmeda y con el mejor cacao. ¡Un clásico irresistible!"
+        "description": "Esponjosa, húmeda y con el mejor cacao. ¡Un clásico irresistible!",
+        "price": 12999,
+         "type": "torta"
     },
     {
-        "id": 5,
-        "img": "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=300&q=80",
-        "name": "Torta de Chocolate",
-        "description": "Esponjosa, húmeda y con el mejor cacao. ¡Un clásico irresistible!"
+        "id": 6,
+        "img": "https://res.cloudinary.com/de7fyvmdp/image/upload/v1755452716/samples/Torta_pisf9i.jpg",
+        "name": "Personalizada",
+        "description": "Esponjosa, húmeda y con el mejor cacao. ¡Un clásico irresistible!",
+        "price": 12999,
+         "type": "torta"
+    },
+     {
+        "id": 7,
+        "img": "https://res.cloudinary.com/de7fyvmdp/image/upload/v1755453328/samples/Desayuno_sskgqr.jpg",
+        "name": "Cupcakes Variados",
+        "description": "De vainilla, chocolate y más, decorados con buttercream de colores.",
+        "price": 14560,
+         "type": "cookies"
+    },
+     {
+        "id": 8,
+        "img": "https://res.cloudinary.com/de7fyvmdp/image/upload/v1755453771/samples/Cheesecake_frutos_rojos_wujyc5.jpg",
+        "name": "Cheesecake de Frutos Rojos",
+        "description": "Esponjosa, húmeda y con el mejor cacao. ¡Un clásico irresistible!",
+        "price": 12999,
+        "type": "torta"
+    },
+    {
+        "id": 9,
+        "img": "https://res.cloudinary.com/de7fyvmdp/image/upload/v1755452716/samples/Torta_pisf9i.jpg",
+        "name": "Personalizada",
+        "description": "Esponjosa, húmeda y con el mejor cacao. ¡Un clásico irresistible!",
+        "price": 12999,
+        "type": "torta"
+    },
+     {
+        "id": 10,
+        "img": "https://res.cloudinary.com/de7fyvmdp/image/upload/v1755453328/samples/Desayuno_sskgqr.jpg",
+        "name": "Cupcakes Variados",
+        "description": "De vainilla, chocolate y más, decorados con buttercream de colores.",
+        "price": 14560,
+        "type": "cookies"
+    },
+     {
+        "id": 11,
+        "img": "https://res.cloudinary.com/de7fyvmdp/image/upload/v1755453771/samples/Cheesecake_frutos_rojos_wujyc5.jpg",
+        "name": "Cheesecake de Frutos Rojos",
+        "description": "Esponjosa, húmeda y con el mejor cacao. ¡Un clásico irresistible!",
+        "price": 12999,
+        "type": "torta"
+    },
+    {
+        "id": 12,
+        "img": "https://res.cloudinary.com/de7fyvmdp/image/upload/v1755452716/samples/Torta_pisf9i.jpg",
+        "name": "Personalizada",
+        "description": "Esponjosa, húmeda y con el mejor cacao. ¡Un clásico irresistible!",
+        "price": 12999,
+        "type": "merienda"
     }
 ]

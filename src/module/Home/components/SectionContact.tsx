@@ -6,7 +6,9 @@ export const SectionContact = () => {
       id="contacto"
       className="w-full flex flex-col justify-center items-center px-4 gap-16 my-16"
     >
-      <h3 className="text-2xl font-bold text-pink-700">Contacto</h3>
+      <h3 className="text-2xl font-bold text-secondary drop-shadow-text">
+        Contacto
+      </h3>
       <form className="max-w-xl w-full grid gap-6">
         <input
           type="text"
