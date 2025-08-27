@@ -26,13 +26,11 @@ export default function DetailProductoById() {
     setCounter((prev) => (prev === 0 ? 0 : prev - 1));
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Aquí puedes manejar el cambio del input si es necesario
     setDetails(e.target.value);
   };
   const handelClick = () => {
-    if (counter > 0)
-      setCarrito([...Carrito, { id, details, counter, totalPrice }]);
-    return;
+    if (id || counter === 0) return;
+    setCarrito([...Carrito, { id, details, counter, totalPrice }]);
   };
 
   return (

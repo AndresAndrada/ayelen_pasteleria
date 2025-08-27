@@ -9,14 +9,19 @@ export default function ShowCart() {
         Carrito 🛒
       </h2>
       {Carrito.length > 0 ? (
-        Carrito.map((item: Record<string, string | number>, index: number) => {
-          return (
-            <div key={index}>
-              <p>{item.details}</p>
-              <p>{item.counter}</p>
-            </div>
-          );
-        })
+        Carrito.map(
+          (
+            item: Record<string, string | number | undefined>,
+            index: number
+          ) => {
+            return (
+              <div key={index}>
+                <p>{item.details}</p>
+                <p>{item.counter}</p>
+              </div>
+            );
+          }
+        )
       ) : (
         <div className="flex flex-col items-center gap-4 mt-16">
           <p className="text-center text-white/75">
