@@ -1,21 +1,21 @@
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SampleNextArrow from "../../core/ui/carousel/SampleNextArrow";
 import SamplePrevArrow from "../../core/ui/carousel/SamplePrevArrow";
 import product from "../../../utils/products.json";
 import { useRef } from "react";
-import type { Slider as SliderType } from "react-slick";
+import Slider from "react-slick";
 import { CardProduct } from "../../core/components/cards/CardProduct";
 import { ButtonSecondary } from "../../core/ui/button/ButtonSecondary";
 
-interface SliderInstance extends SliderType {
-  slickNext: () => void;
-  slickPrev: () => void;
-}
+// interface SliderInstance {
+//   slickNext: () => void;
+//   slickPrev: () => void;
+// }
 
 export const SectionProduct = () => {
-  const sliderRef = useRef<SliderInstance>(null);
+  const sliderRef = useRef<Slider | null>(null);
   const next = () => {
     sliderRef.current?.slickNext();
   };
