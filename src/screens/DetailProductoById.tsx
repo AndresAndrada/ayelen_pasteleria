@@ -3,6 +3,8 @@ import img from "../assets/img/Ayelén1.jpeg";
 import { useState, useEffect } from "react";
 import { ButtonSecondary } from "../module/core/ui/button/ButtonSecondary";
 import { useProductStore } from "../store";
+import toast from "react-hot-toast";
+import type { Product } from "../types";
 
 export default function DetailProductoById() {
   const { id } = useParams();
@@ -10,14 +12,18 @@ export default function DetailProductoById() {
   const [counter, setCounter] = useState<number>(0);
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [details, setDetails] = useState<string>("");
+  const [product] = useState<Product>({
+    id: 1,
+    name: "Torta de chocolate",
+    description: "Deliciosa torta de chocolate",
+    price: 12000,
+    img: img,
+    stock: 10,
+  });
 
   useEffect(() => {
     setTotalPrice(12000 * counter);
   }, [counter]);
-
-  useEffect(() => {
-    console.log("🚀 ~ handelClick ~ Carrito:", Carrito);
-  }, [Carrito]);
 
   const handleConunterPlus = () => {
     setCounter((prev) => prev + 1);
@@ -29,8 +35,10 @@ export default function DetailProductoById() {
     setDetails(e.target.value);
   };
   const handelClick = () => {
-    if (id || counter === 0) return;
-    setCarrito([...Carrito, { id, details, counter, totalPrice }]);
+    if (!id || counter === 0) return;
+    setCarrito([...Carrito, { id, details, counter, totalPrice, product }]);
+    console.log("🚀 ~ handelClick ~ Carrito:", Carrito);
+    toast.success("Producto agregado al carrito", { duration: 2000 });
   };
 
   return (
@@ -43,7 +51,7 @@ export default function DetailProductoById() {
           <img
             src={img}
             alt={"img"}
-            className="sm:w-4/5 sm:h-2/5 md:w-2/3 md:h-2/3 lg:w-2/3 lg:h-2/3 object-cover"
+            className="sm:w-4/5 sm:h-2/5 md:w-2/3 md:h-2/3 lg:w-4/5 lg:h-4/5 object-cover"
           />
         </div>
         <div className="flex-1 flex flex-col pr-4 gap-8">

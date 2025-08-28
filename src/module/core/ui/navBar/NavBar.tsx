@@ -18,7 +18,7 @@ export const NavBar = () => {
           className="w-8 object-cover rounded-full cursor-pointer"
           onClick={() => navigate("/")}
         />
-        <nav className="space-x-4 md:space-x-6">
+        <nav className="space-x-4 md:space-x-6 flex">
           <ItemsNavBar href="#productos">
             <span className="text-white/65">Producto</span>
           </ItemsNavBar>
@@ -28,6 +28,17 @@ export const NavBar = () => {
           <ItemsNavBar href="#contacto">
             <span className="text-white/65">Contacto</span>
           </ItemsNavBar>
+          <ItemsNavBarHamburger
+            className="indicator cursor-pointer"
+            navigate="/cart"
+          >
+            {Carrito?.length > 0 && (
+              <span className="indicator-item badge badge-success w-4 left-2 cursor-pointer">
+                {Carrito.length}
+              </span>
+            )}
+            <MdOutlineShoppingCart size={"20px"} color="white" />
+          </ItemsNavBarHamburger>
         </nav>
       </header>
       <ul className="menu fixed bottom-4 right-4 w-16 shadow-4xl flex md:hidden justify-between items-center z-50 bg-secondary rounded-box">
@@ -49,7 +60,7 @@ export const NavBar = () => {
         <li>
           <ItemsNavBarHamburger className="indicator" navigate="/cart">
             {Carrito?.length > 0 && (
-              <span className="indicator-item badge badge-secondary w-4 right-2">
+              <span className="indicator-item badge badge-success w-4 right-2">
                 {Carrito.length}
               </span>
             )}

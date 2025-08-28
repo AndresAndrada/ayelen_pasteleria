@@ -64,7 +64,7 @@ export const SectionProduct = () => {
       </div>
       <div className="slider-container min-h-96 max-w-60 sm:w-full sm:max-w-96 md:max-w-2xl lg:max-w-4xl md:pl-0">
         <Slider {...settings} ref={sliderRef}>
-          {product.map((item) => {
+          {product.splice(0, 6).map((item) => {
             return (
               <CardProduct
                 key={item.id}

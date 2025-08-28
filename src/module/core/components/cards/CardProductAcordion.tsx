@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 
 interface CardProductAcordionProps {
-  id: number;
-  img: string;
-  name: string;
-  description: string;
+  id?: number;
+  img?: string;
+  name?: string;
+  description?: string;
 }
 export const CardProductAcordion = ({
   id,
