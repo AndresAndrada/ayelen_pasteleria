@@ -1,4 +1,4 @@
-// import LOGO from '../../../assets/svg/negativo.svg'
+import LOGO from "../../../../assets/img/AyelénPasteleria.jpeg";
 import { RiInstagramFill } from "react-icons/ri";
 import { SiWhatsapp, SiLinkedin } from "react-icons/si";
 import { useUiStore } from "../../../../store";
@@ -17,10 +17,16 @@ export const Footer = () => {
       <div
         className={`footer p-10 justify-around text-center transition-bg shadow-[0_-8px_24px_-4px_rgba(0,0,0,0.2)]`}
       >
-        <h1 className={`text-[20px] font-normal text-center transition-bg`}>
-          Effort&Habit
+        <h1
+          className={`text-[20px] font-bold drop-shadow-text flex w-full justify-center transition-bg`}
+        >
+          Ayelen.Pastelería
         </h1>
-        {/* <img src={LOGO} alt="Logo" className="w-48" /> */}
+        <img
+          src={LOGO}
+          alt="Logo"
+          className="w-48 rounded-full bg-none shadow-xl"
+        />
         <nav className="flex flex-col items-center">
           <h6 className={`text-[20px] font-black text-center transition-bg`}>
             Sobre nosotros

@@ -15,28 +15,41 @@ export default function ShowCart() {
       {Carrito.length > 0 ? (
         Carrito.map(
           (item: Record<string, string | number | Product>, index) => {
-            // Type guard para asegurar que item.product es un Product
             const product = item.product;
-            if (product && typeof product === "object" && "name" in product) {
+            if (
+              product &&
+              typeof product === "object" &&
+              "name" in product &&
+              "img" in product &&
+              "description" in product
+            ) {
               return (
                 <div
-                  key={index}
+                  key={
+                    typeof product.id === "string" ||
+                    typeof product.id === "number"
+                      ? product.id
+                      : index
+                  }
                   className="flex mb-4 p-4 rounded-lg bg-white/35 gap-4 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-transform duration-300"
                 >
                   <img
-                    src={item.product?.img}
-                    alt="Torta de chocolate"
+                    src={product.img as string}
+                    alt={product.name as string}
                     className="w-20 h-20 object-cover rounded-full mb-4"
                   />
                   <div className="flex flex-col items-start">
                     <h4 className="text-secondary text-start">
-                      {item.product.name}
+                      {product.name as string}
                     </h4>
                     <p className="max-w-52 text-start text-white">
-                      {item.product.description}
+                      {product.description as string}
                     </p>
                     <p className="text-white">
-                      Precio total: {item.totalPrice}
+                      Precio total:{" "}
+                      {typeof item.totalPrice === "number"
+                        ? item.totalPrice
+                        : ""}
                     </p>
                   </div>
                 </div>
