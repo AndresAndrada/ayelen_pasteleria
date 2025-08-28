@@ -15,7 +15,7 @@ export const ProductAcordion = () => {
           <div className="collapse-title font-semibold text-white bg-banner bg-cover">
             <h3 className="text-secondary">Torta</h3>
           </div>
-          <div className="collapse-content text-sm flex flex-col gap-2 bg-white">
+          <div className="collapse-content text-sm flex flex-col gap-2">
             {cakeProduct.map((item) => {
               return (
                 <CardProductAcordion
@@ -37,7 +37,7 @@ export const ProductAcordion = () => {
           <div className="collapse-title font-semibold text-white bg-banner bg-cover">
             <h3 className="text-secondary">Galletas</h3>
           </div>
-          <div className="collapse-content text-sm flex flex-col gap-2 bg-white">
+          <div className="collapse-content text-sm flex flex-col gap-2">
             {cookiesProduct.map((item) => {
               return (
                 <CardProductAcordion
@@ -59,7 +59,7 @@ export const ProductAcordion = () => {
           <div className="collapse-title font-semibold text-white bg-banner bg-cover">
             <h3 className="text-secondary">Meriendas</h3>
           </div>
-          <div className="collapse-content text-sm flex flex-col gap-2 bg-white">
+          <div className="collapse-content text-sm flex flex-col gap-2">
             {meriendaProduct.map((item) => {
               return (
                 <CardProductAcordion

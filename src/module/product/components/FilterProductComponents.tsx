@@ -64,7 +64,7 @@ export const FilterProductComponents = ({
               <input
                 type="checkbox"
                 checked={type.includes(item.value)}
-                defaultChecked
+                // defaultChecked
                 onChange={() => handleTypeChange(item.value)}
                 className="checkbox checkbox-success mr-2 h-4 w-4 bg-white"
               />
