@@ -1,33 +1,35 @@
 import LOGO from "../../../../assets/img/AyelénPasteleria.jpeg";
 import { RiInstagramFill } from "react-icons/ri";
 import { SiWhatsapp, SiLinkedin } from "react-icons/si";
-import { useUiStore } from "../../../../store";
+// import { useUiStore } from "../../../../store";
 
 export const Footer = () => {
-  const { DarkMode } = useUiStore();
-
+  // const { DarkMode } = useUiStore();
   return (
     <footer
-      className={`${
-        !DarkMode
-          ? "bg-gradient-dark text-gray-400"
-          : "bg-gradient-section text-black/65"
-      }`}
+      // className={`${
+      //   !DarkMode
+      //     ? "bg-gradient-dark text-gray-400"
+      //     : "bg-gradient-section text-black/65"
+      // }`}
+      className="bg-gradient-section text-black/65"
     >
-      <div
+      <footer
         className={`footer p-10 justify-around text-center transition-bg shadow-[0_-8px_24px_-4px_rgba(0,0,0,0.2)]`}
       >
-        <h1
-          className={`text-[20px] font-bold drop-shadow-text flex w-full justify-center transition-bg`}
-        >
-          Ayelen.Pastelería
-        </h1>
-        <img
-          src={LOGO}
-          alt="Logo"
-          className="w-48 rounded-full bg-none shadow-xl"
-        />
-        <nav className="flex flex-col items-center">
+        <div>
+          <h1
+            className={`text-[20px] font-bold drop-shadow-text flex w-full justify-center transition-bg`}
+          >
+            Ayelen.Pastelería
+          </h1>
+          <img
+            src={LOGO}
+            alt="Logo"
+            className="w-48 rounded-full bg-none shadow-xl"
+          />
+        </div>
+        <div className="flex flex-col items-center">
           <h6 className={`text-[20px] font-black text-center transition-bg`}>
             Sobre nosotros
           </h6>
@@ -38,7 +40,7 @@ export const Footer = () => {
             calidad, elaborados con amor, para crear experiencias únicas que
             deleiten el paladar y fortalezcan los lazos en cada celebración.
           </p>
-        </nav>
+        </div>
         <nav className="flex flex-col items-center">
           <h6 className={`text-[20px] font-black text-center transition-bg`}>
             Mantente Conectado
@@ -78,7 +80,7 @@ export const Footer = () => {
             <SiLinkedin className="text-2xl" /> Andrada Andres Alfredo
           </a>
         </nav>
-      </div>
+      </footer>
       <div className={`text-center pb-2 transition-bg`}>
         © {new Date().getFullYear()} Ayelén Pastelería. Todos los derechos
         reservados.

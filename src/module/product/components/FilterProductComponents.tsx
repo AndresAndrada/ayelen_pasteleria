@@ -72,19 +72,6 @@ export const FilterProductComponents = ({
             </div>
           ))}
         </div>
-        {/* <div>
-          <label className="block text-gray-700 font-medium mb-2">
-            Precio Máximo: ${maxPrice.toFixed(2)}
-          </label>
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={maxPrice}
-            onChange={handlePriceChange}
-            className="w-full h-2 bg-pink-200 rounded-lg appearance-none cursor-pointer"
-          />
-        </div> */}
       </div>
     </aside>
   );

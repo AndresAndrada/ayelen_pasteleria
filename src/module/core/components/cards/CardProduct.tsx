@@ -19,11 +19,11 @@ export const CardProduct = ({ id, img, name, description, price }: Product) => {
           className="w-full h-56 object-cover transition-transform duration-300 hover:scale-105"
         />
       </div>
-      <div className="flex flex-col items-start min-h-40 p-4 text-xs">
-        <h4 className="font-semibold text-base sm:text-lg text-secondary mb-2">
+      <div className="flex flex-col items-start min-h-40 p-4">
+        <h4 className="font-semibold text-sm sm:text-lg text-secondary mb-2">
           {name}
         </h4>
-        <p className="text-gray-600 text-start">{description}</p>
+        <p className="text-gray-600 text-start text-md">{description}</p>
         <p className="w-full font-semibold text-gray-600 mt-auto text-right">
           Precio: ${price}
         </p>

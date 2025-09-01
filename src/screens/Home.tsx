@@ -40,7 +40,7 @@ export default function Home() {
             alt="Pastel decorado"
             className="rounded-2xl shadow-4xl w-[80%] lg:w-full max-w-sm mb-10 border-4 border-pink-200 -rotate-12 -m-40 hover:scale-105 transition-transform duration-500"
           />
-          <ButtonPrimary href={"#productos"}>Ver productos</ButtonPrimary>
+          <ButtonPrimary href={"#product"}>Ver productos</ButtonPrimary>
         </div>
       </div>
       <div className="w-full">

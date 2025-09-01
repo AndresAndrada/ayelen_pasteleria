@@ -51,7 +51,7 @@ export const SectionProduct = () => {
 
   return (
     <section
-      id="productos"
+      id="product"
       className="w-full flex flex-col justify-center items-center py-16 bg-white/70 gap-12"
     >
       <div className="flex flex-col gap-4">

@@ -7,6 +7,7 @@ const Home = lazy(() => import("../screens/Home"));
 const Product = lazy(() => import("../screens/Product"));
 const ShowCart = lazy(() => import("../screens/ShowCart"));
 const DetailProductoById = lazy(() => import("../screens/DetailProductoById"));
+const CreateProduct = lazy(() => import("../screens/CreateProduct"));
 export default function NavigatorRouter() {
   return (
     <Suspense
@@ -19,8 +20,9 @@ export default function NavigatorRouter() {
       <RouterRoutes>
         <Route element={<Layout />}>
           <Route path={"/"} element={<Home />} />
-          <Route path={"/product"} element={<Product />} />
           <Route path={"/cart"} element={<ShowCart />} />
+          <Route path={"/product"} element={<Product />} />
+          <Route path={"/product/create"} element={<CreateProduct />} />
           <Route path="/product/:id" element={<DetailProductoById />} />
         </Route>
       </RouterRoutes>

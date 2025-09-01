@@ -1,24 +1,24 @@
-interface TitleProps {
+interface ButtonPrimaryProps {
   children: React.ReactNode;
   href: string;
 }
 
-export const ButtonPrimary = ({ href, children }: TitleProps) => {
+export const ButtonPrimary = ({ href, children }: ButtonPrimaryProps) => {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault(); // Prevent default anchor jump
-    const targetId = href.replace("#", ""); // Get the ID (e.g., "productos")
+    e.preventDefault();
+    const targetId = href.replace("#", "");
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
       targetElement.scrollIntoView({
         behavior: "smooth",
-        block: "start", // Scroll to the top of the section
+        block: "start",
       });
     }
   };
   return (
     <a
-      href="#productos"
-      className="bg-secondary hover:bg-secondary/80 text-white font-semibold px-8 py-3 rounded-full shadow-md transition-colors duration-500"
+      href={href}
+      className="bg-secondary hover:bg-secondary/80 text-white font-semibold px-4 py-3 rounded-full shadow-md transition-colors duration-500"
       onClick={handleClick}
     >
       {children}
