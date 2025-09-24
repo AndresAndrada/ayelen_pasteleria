@@ -2,86 +2,59 @@
 import { useEffect, useState } from "react";
 import { ButtonSecondary } from "../module/core/ui/button/ButtonSecondary";
 import { useProductStore } from "../store";
-import type { Product } from "../types";
+import type { CartItem } from "../types";
+import { CardCart } from "../module/cart/CardCart";
 
 export default function ShowCart() {
-  const { Carrito } = useProductStore((store) => store);
+  const { Carrito, setCarrito } = useProductStore((store) => store);
   const [message, setMessage] = useState<string>("");
   const totalPrice = Carrito.reduce((acc, item) => {
     return acc + (typeof item.totalPrice === "number" ? item.totalPrice : 0);
   }, 0);
-  // console.log("🚀 ~ ShowCart ~ Carrito:", Carrito);
   useEffect(() => {}, [message]);
 
   const handleMessage = () => {
-    const messageDetails = `Mi pedido es: ${Carrito.map(
-      (item: Record<string, string | number | Product>) => {
-        const product = item.product;
-        if (
-          product &&
-          typeof product === "object" &&
-          "name" in product &&
-          "img" in product &&
-          "description" in product
-        ) {
-          return ` | Cant: ${item.counter} de ${
-            product.name.toUpperCase() as string
-          } - ${
-            item.details ? "Detalles: *" + item.details + "* " : ""
-          } Precio unitario: $ ${product.price as number}`;
-        }
-        return "";
-      }
-    )}  | TOTAL A PAGAR: $ *${totalPrice}*`;
-    setMessage(messageDetails);
+    const messageDetails = `Mi pedido es: ${Carrito.map((item: CartItem) => {
+      const { productFind, counter, details } = item;
+      return `\n\n • Cant: ${counter} de ${productFind.name.toUpperCase()} - ${
+        details ? `Detalles: *${details}* ` : ""
+      }Precio unitario: $${productFind.price.toLocaleString()}`;
+    })} \n\nTOTAL A PAGAR: $${totalPrice.toLocaleString()}`;
+    setMessage(encodeURIComponent(messageDetails));
   };
 
+  const handleDelete = (id: string) => {
+    setCarrito(Carrito.filter((item) => item.id !== id));
+    setMessage("");
+  };
   return (
     <section className="min-h-screen flex flex-col items-center bg-gradient-section p-6 scroll-smooth gap-4">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-center text-secondary drop-shadow-text">
+      <h2 className="text-2xl md:text-5xl font-extrabold text-center text-secondary drop-shadow-text">
         Carrito 🛒
       </h2>
       {Carrito.length > 0 ? (
-        Carrito.map(
-          (item: Record<string, string | number | Product>, index) => {
-            const product = item.product;
-            if (
-              product &&
-              typeof product === "object" &&
-              "name" in product &&
-              "img" in product &&
-              "description" in product
-            ) {
-              return (
-                <div
-                  key={index}
-                  className="w-full flex items-center mb-4 p-4 rounded-lg bg-white/35 gap-4 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-transform duration-300"
-                >
-                  <img
-                    src={product.img as string}
-                    alt={product.name as string}
-                    className="w-20 h-20 object-cover rounded-full mb-4"
-                  />
-                  <div className="flex flex-col items-start">
-                    <h4 className="text-secondary text-start">
-                      {product.name as string}
-                    </h4>
-                    <p className="max-w-52 text-start text-white">
-                      Cantidad: {item.counter as number}
-                    </p>
-                    <p className="text-white">
-                      Total:{" "}
-                      {typeof item.totalPrice === "number"
-                        ? item.totalPrice
-                        : ""}
-                    </p>
-                  </div>
-                </div>
-              );
-            }
-            return null;
+        Carrito.map((item: CartItem) => {
+          const product = item?.productFind;
+          if (
+            product &&
+            typeof product === "object" &&
+            "name" in product &&
+            "img" in product &&
+            "description" in product
+          ) {
+            return (
+              <CardCart
+                key={item.id}
+                name={product.name}
+                img={product.img}
+                count={item.counter}
+                totalPrice={item.totalPrice}
+                handleDelete={() => handleDelete(item.id)}
+              />
+            );
           }
-        )
+          return null;
+        })
       ) : (
         <div className="flex flex-col items-center gap-4 my-8">
           <p className="text-center text-white/75">

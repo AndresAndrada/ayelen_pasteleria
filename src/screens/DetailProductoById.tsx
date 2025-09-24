@@ -4,7 +4,9 @@ import { useState, useEffect } from "react";
 import { ButtonSecondary } from "../module/core/ui/button/ButtonSecondary";
 import { useProductStore } from "../store";
 import toast from "react-hot-toast";
-import type { Product } from "../types";
+// import type { Product } from "../types";
+import products from "../utils/products.json";
+import { scrollToTop } from "../utils/scrollToTop";
 
 export default function DetailProductoById() {
   const { id } = useParams();
@@ -12,18 +14,17 @@ export default function DetailProductoById() {
   const [counter, setCounter] = useState<number>(0);
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [details, setDetails] = useState<string>("");
-  const [product] = useState<Product>({
-    id: 1,
-    name: "Torta de chocolate",
-    description: "Deliciosa torta de chocolate",
-    price: 12000,
-    img: img,
-    stock: 10,
-  });
+  const productFind = products.find((p) => p.id === Number(id));
 
   useEffect(() => {
-    setTotalPrice(12000 * counter);
-  }, [counter]);
+    scrollToTop({ smooth: true });
+  }, []);
+
+  useEffect(() => {
+    if (!productFind) return;
+    setTotalPrice(productFind.price * counter);
+    // setTotalPrice(product.price * counter);
+  }, [counter, productFind]);
 
   const handleConunterPlus = () => {
     setCounter((prev) => prev + 1);
@@ -35,15 +36,16 @@ export default function DetailProductoById() {
     setDetails(e.target.value);
   };
   const handelClick = () => {
-    if (!id || counter === 0) return;
-    setCarrito([...Carrito, { id, details, counter, totalPrice, product }]);
+    if (!id || counter === 0 || !productFind) return;
+
+    setCarrito([...Carrito, { id, details, counter, totalPrice, productFind }]);
     console.log("🚀 ~ handelClick ~ Carrito:", Carrito);
     toast.success("Producto agregado al carrito", { duration: 2000 });
   };
 
   return (
     <section className="flex flex-col items-center p-6 min-h-screen gap-8 sm:gap-16 bg-gradient-section">
-      <h1 className="text-4xl font-bold text-secondary drop-shadow-text text-center">
+      <h1 className="text-2xl font-bold text-secondary drop-shadow-text text-center">
         Deatalle del Producto
       </h1>
       <div className="flex flex-col md:flex-row gap-8 w-full max-w-4xl">
@@ -55,13 +57,8 @@ export default function DetailProductoById() {
           />
         </div>
         <div className="flex-1 flex flex-col pr-4 gap-8">
-          <h2 className="text-2xl font-bold text-white">Torta</h2>
-          <p className="text-white/65">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-            quasi incidunt tempora debitis quam mollitia, ratione temporibus
-            dignissimos eius at eaque aliquid nobis qui eum dicta voluptates
-            explicabo. Expedita, doloremque.
-          </p>
+          <h2 className="text-xl font-bold text-white">{productFind?.name}</h2>
+          <p className="text-white/65">{productFind?.description}</p>
           <div className="flex flex-col gap-2 text-white/65">
             <p>Adicional:</p>
             <input
@@ -98,7 +95,7 @@ export default function DetailProductoById() {
             </div>
             <div className="flex flex-col justify-center">
               <p className="font-semibold text-white/65 text-right mt-auto">
-                Precio: $12000
+                Precio: {productFind?.price}
               </p>
               <p className="font-semibold text-white/65 text-right mt-auto">
                 Total: {totalPrice}

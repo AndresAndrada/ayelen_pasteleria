@@ -1,15 +1,19 @@
 import img from "../../../../assets/img/AyelénPasteleria.jpeg";
 import { ItemsNavBar } from "./ItemsNavBar";
 import { IoHomeOutline } from "react-icons/io5";
-import { MdInfoOutline, MdOutlineShoppingCart } from "react-icons/md";
+import {
+  MdInfoOutline,
+  MdOutlineShoppingCart,
+  MdSettings,
+} from "react-icons/md";
 import { CiViewList } from "react-icons/ci";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useProductStore } from "../../../../store";
+import { useProductStore, useUserStore } from "../../../../store";
 import { ItemsNavBarHamburger } from "./ItemsNavBarHamburger";
 export const NavBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  // console.log("🚀 ~ NavBar ~ location:", location.pathname !== "/");
+  const { Login } = useUserStore();
   const { Carrito } = useProductStore((store) => store);
   return (
     <>
@@ -21,15 +25,27 @@ export const NavBar = () => {
           onClick={() => navigate("/")}
         />
         <nav className="space-x-4 md:space-x-6 flex">
-          <ItemsNavBar href="#productos">
-            <span className="text-white/65">Producto</span>
-          </ItemsNavBar>
+          {location.pathname !== "/" ? (
+            <ItemsNavBar navigate="/product">
+              <span className="text-white/65">Producto</span>
+            </ItemsNavBar>
+          ) : (
+            <ItemsNavBar href={"#product"}>
+              <span className="text-white/65">Producto</span>
+            </ItemsNavBar>
+          )}
           <ItemsNavBar href="#nosotros">
             <span className="text-white/65">Nosotros</span>
           </ItemsNavBar>
           <ItemsNavBar href="#contacto">
             <span className="text-white/65">Contacto</span>
           </ItemsNavBar>
+          {!Login && (
+            <ItemsNavBar navigate="/dashboard/setting">
+              <MdSettings size={"20px"} color="white" />
+              {/* <span className="text-white/65">Dashboard</span> */}
+            </ItemsNavBar>
+          )}
           <ItemsNavBarHamburger
             className="indicator cursor-pointer"
             navigate="/cart"
@@ -57,7 +73,7 @@ export const NavBar = () => {
         </li>
         <li>
           {location.pathname !== "/" ? (
-            <ItemsNavBar href={"/product"}>
+            <ItemsNavBar navigate={"/product"}>
               <CiViewList size={"18px"} color="white" />
             </ItemsNavBar>
           ) : (
@@ -66,7 +82,13 @@ export const NavBar = () => {
             </ItemsNavBar>
           )}
         </li>
-        {location.pathname !== "/" ? null : (
+        {location.pathname !== "/" ? (
+          <li>
+            <ItemsNavBar navigate={"/"}>
+              <MdInfoOutline size={"18px"} color="white" />
+            </ItemsNavBar>
+          </li>
+        ) : (
           <li>
             <ItemsNavBar href={"#nosotros"}>
               <MdInfoOutline size={"18px"} color="white" />

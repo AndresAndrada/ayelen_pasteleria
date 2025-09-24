@@ -11,7 +11,6 @@ export const ItemsNavBar = ({
   className,
   navigate,
 }: ItemNevBarProps) => {
-  console.log("🚀 ~ ItemsNavBar ~ navigate:", navigate);
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault(); // Prevent default anchor jump
     const targetId = href?.replace("#", ""); // Get the ID (e.g., "productos")

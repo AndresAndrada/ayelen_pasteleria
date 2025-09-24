@@ -1,5 +1,6 @@
 import { create } from 'zustand';
-import type { Product } from '../../types';
+import type { CartItem, Product } from '../../types';
+import { persist } from 'zustand/middleware';
 
 // Definimos la interfaz para el estado de la tienda
 interface ProductStore {
@@ -11,7 +12,7 @@ interface ProductStore {
   SelectedTab: string;
   ProductById: Record<string, Product>; // Reemplaza con una interfaz específica si la tienes
   ConsumerProducts: string;
-  Carrito: Record<string, string | number | Product>[]; // Cambiado a un objeto para detalles del carrito
+  Carrito: CartItem[]; // Cambiado a un objeto para detalles del carrito
 
   // Métodos para actualizar el estado
   setProducts: (values: Product[]) => void;
@@ -22,11 +23,11 @@ interface ProductStore {
   setCurrentProductsPage: (page: number) => void;
   setSelectedTab: (tab: string) => void;
   setConsumerProducts: (consumer: string) => void;
-  setCarrito: (consumer: Record<string, string | number | Product>[]) => void;
+  setCarrito: (consumer: CartItem[]) => void;
 }
 
 // Creamos la tienda con Zustand y tipamos el estado
-export const useProductStore = create<ProductStore>((set) => ({
+export const useProductStore = create<ProductStore>()(persist((set) => ({
   DataPerfilProduct: null,
   Products: [],
   DetailsProduct: null,
@@ -50,4 +51,18 @@ export const useProductStore = create<ProductStore>((set) => ({
   setConsumerProducts: (consumer) =>
     set((prevState: ProductStore) => ({ ...prevState, ConsumerProducts: consumer })),
   setCarrito: (values) => set({ Carrito: values }),
+}),
+{
+  name: 'ayeProdcut-storage',
+    storage: {
+      getItem: (name) => {
+        const item = localStorage.getItem(name);
+        return item ? JSON.parse(item) : null;
+      },
+      setItem: (name, value) => {
+        localStorage.setItem(name, JSON.stringify(value));
+      },
+      removeItem: (name) => localStorage.removeItem(name),
+    },
+
 }));

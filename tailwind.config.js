@@ -61,6 +61,9 @@ export default {
       },
       backgroundImage: {
         banner: 'url(https://res.cloudinary.com/de7fyvmdp/image/upload/v1755453771/samples/Cheesecake_frutos_rojos_wujyc5.jpg)',
+        bannerMerienda: 'url(https://res.cloudinary.com/de7fyvmdp/image/upload/v1755453328/samples/Desayuno_sskgqr.jpg)',
+        bannerGalletas: 'url(https://res.cloudinary.com/de7fyvmdp/image/upload/v1755453165/samples/Ayel%C3%A9n1_lpvjyv.jpg)',
+        bannerAlfajores: 'url(https://res.cloudinary.com/de7fyvmdp/image/upload/v1755453519/samples/Chocolate_cla3f3.jpg)',
         "gradient-section": "linear-gradient(to bottom right, #fce7f3, red)",
         "gradient-dark": "linear-gradient(to bottom right, black, gray)",
       },

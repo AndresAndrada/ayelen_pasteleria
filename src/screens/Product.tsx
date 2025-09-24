@@ -31,7 +31,7 @@ export default function Product() {
   return (
     <section className="min-h-screen bg-gradient-section flex flex-col scroll-smooth">
       <div className="flex-1 flex flex-col items-center justify-center text-center px-4 py-16">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-secondary mb-8 drop-shadow-text">
+        <h2 className="text-2xl md:text-5xl font-extrabold text-secondary mb-8 drop-shadow-text">
           Nuestra Colección de Postres 🍰
         </h2>
         <p className="text-lg md:text-xl text-white/75 mb-12 max-w-2xl">

@@ -97,5 +97,32 @@
         "price": 12999,
         "type": "merienda",
         "stock": 5
+    },
+    {
+        "id": 13,
+        "img": "https://res.cloudinary.com/de7fyvmdp/image/upload/v1755452716/samples/Torta_pisf9i.jpg",
+        "name": "Alfajor de Maicena",
+        "description": "Esponjosa, húmeda y con el mejor cacao. ¡Un clásico irresistible!",
+        "price": 12999,
+        "type": "Alfajor",
+        "stock": 5
+    },
+    {
+        "id": 14,
+        "img": "https://res.cloudinary.com/de7fyvmdp/image/upload/v1755452716/samples/Torta_pisf9i.jpg",
+        "name": "Alfajor de Chocolate",
+        "description": "Esponjosa, húmeda y con el mejor cacao. ¡Un clásico irresistible! | PRECIO UNITARIO",
+        "price": 12999,
+        "type": "Alfajor",
+        "stock": 5
+    },
+    {
+        "id": 15,
+        "img": "https://res.cloudinary.com/de7fyvmdp/image/upload/v1755452716/samples/Torta_pisf9i.jpg",
+        "name": "Alfajor de Fruta",
+        "description": "Esponjosa, húmeda y con el mejor cacao. ¡Un clásico irresistible!",
+        "price": 12999,
+        "type": "Alfajor",
+        "stock": 5
     }
 ]
