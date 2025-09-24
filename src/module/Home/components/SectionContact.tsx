@@ -13,16 +13,16 @@ export const SectionContact = () => {
         <input
           type="text"
           placeholder="Nombre"
-          className="border border-pink-300 rounded-lg px-4 py-2 focus:outline-pink-400"
+          className="border border-pink-300 rounded-lg px-4 py-2 focus:outline-pink-400 bg-white"
         />
         <input
           type="email"
           placeholder="Correo electrónico"
-          className="border border-pink-300 rounded-lg px-4 py-2 focus:outline-pink-400"
+          className="border border-pink-300 rounded-lg px-4 py-2 focus:outline-pink-400 bg-white"
         />
         <textarea
           placeholder="Mensaje"
-          className="border border-pink-300 rounded-lg px-4 py-2 focus:outline-pink-400"
+          className="border border-pink-300 rounded-lg px-4 py-2 focus:outline-pink-400 bg-white"
           rows={4}
         ></textarea>
         <ButtonSecondary title={"Enviar"} />

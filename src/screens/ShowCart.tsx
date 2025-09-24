@@ -70,6 +70,7 @@ export default function ShowCart() {
             className="text-center bg-secondary hover:bg-secondary/80 text-white font-semibold px-4 py-3 rounded-full shadow-xl transition-colors duration-500"
             target="_blank"
             rel="noreferrer"
+            onClick={() => setCarrito([])}
           >
             Enviar pedido
           </a>
