@@ -21,11 +21,15 @@ export const CardProductAcordion = ({
       <img
         src={img}
         alt="Torta de chocolate"
-        className="w-16 object-cover rounded-full mb-4"
+        className="w-16 h-16 object-cover rounded-full mb-4"
       />
       <div className="flex flex-col items-start">
         <h4 className="text-secondary text-start">{name}</h4>
-        <p className="max-w-48 text-start">{description}</p>
+        <p className="max-w-48 text-start">
+          {description && description?.length > 30
+            ? description?.slice(0, 50) + "..."
+            : description}
+        </p>
       </div>
     </div>
   );

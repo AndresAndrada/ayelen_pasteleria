@@ -40,7 +40,7 @@ export const NavBar = () => {
           <ItemsNavBar href="#contacto">
             <span className="text-white/65">Contacto</span>
           </ItemsNavBar>
-          {!Login && (
+          {Login && (
             <ItemsNavBar navigate="/dashboard/setting">
               <MdSettings size={"20px"} color="white" />
               {/* <span className="text-white/65">Dashboard</span> */}

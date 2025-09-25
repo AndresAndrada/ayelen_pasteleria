@@ -18,6 +18,7 @@ export const FilterProductComponents = ({
     { id: 1, name: "Torta", value: "torta" },
     { id: 2, name: "Cookies", value: "cookies" },
     { id: 3, name: "Merienda", value: "merienda" },
+    { id: 4, name: "Alfajor", value: "alfajor" },
   ];
 
   const handleTypeChange = (optionType: string) => {

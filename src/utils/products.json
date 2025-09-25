@@ -104,7 +104,7 @@
         "name": "Alfajor de Maicena",
         "description": "Esponjosa, húmeda y con el mejor cacao. ¡Un clásico irresistible!",
         "price": 12999,
-        "type": "Alfajor",
+        "type": "alfajor",
         "stock": 5
     },
     {
@@ -113,7 +113,7 @@
         "name": "Alfajor de Chocolate",
         "description": "Esponjosa, húmeda y con el mejor cacao. ¡Un clásico irresistible! | PRECIO UNITARIO",
         "price": 12999,
-        "type": "Alfajor",
+        "type": "alfajor",
         "stock": 5
     },
     {
@@ -122,7 +122,7 @@
         "name": "Alfajor de Fruta",
         "description": "Esponjosa, húmeda y con el mejor cacao. ¡Un clásico irresistible!",
         "price": 12999,
-        "type": "Alfajor",
+        "type": "alfajor",
         "stock": 5
     }
 ]
