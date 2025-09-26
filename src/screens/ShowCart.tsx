@@ -39,6 +39,11 @@ export default function ShowCart() {
     setAddress("");
   };
 
+  const hangleChangeCheckbox = () => {
+    setWithdraw(withdraw === "withdraw" ? "delivery" : "withdraw");
+    setMessage("");
+  };
+
   return (
     <section className="min-h-screen flex flex-col items-center bg-gradient-section p-6 scroll-smooth gap-4">
       <h2 className="text-2xl md:text-5xl font-extrabold text-center text-secondary drop-shadow-text">
@@ -83,9 +88,7 @@ export default function ShowCart() {
             color="white"
             className="toggle bg-white"
             disabled={Carrito.length === 0}
-            onChange={() =>
-              setWithdraw(withdraw === "withdraw" ? "delivery" : "withdraw")
-            }
+            onChange={hangleChangeCheckbox}
           />
           <p className="text-secondary font-bold">Delivery</p>
         </div>
