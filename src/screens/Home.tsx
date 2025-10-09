@@ -1,6 +1,6 @@
 import { ButtonPrimary } from "../module/core/ui/button/ButtonPrimary";
 import { SectionAboutUs } from "../module/Home/components/SectionAboutUs";
-import { SectionContact } from "../module/Home/components/SectionContact";
+// import { SectionContact } from "../module/Home/components/SectionContact";
 import { SectionProduct } from "../module/Home/components/SectionProduct";
 import img1 from "../assets/img/Ayelén1.jpeg";
 import img2 from "../assets/img/Ayelén2.jpeg";
@@ -46,7 +46,7 @@ export default function Home() {
       <div className="w-full">
         <SectionProduct />
         <SectionAboutUs />
-        <SectionContact />
+        {/* <SectionContact /> */}
       </div>
     </main>
     // </div>
